@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f0eba0;
+  border: 20px solid #243832b7;
+
+  font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ----------header 영역---------- */
+header {
+  display: flex;
+  justify-content: space-around;
+
+  background-image: url(src/crumpled-paper-texture.jpg);
+  background-position: center;
+  background-size: cover;
+
+  padding: 2%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#header-title {
+  font-size: 60px;
+}
+
+#header-h2 {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 20px 0;
+  grid-gap: 10px;
+
+  font-size: 12px;
+  font-weight: 300;
+  color: #222;
+  align-items: center;
+}
+
+#header-h2:after,
+#header-h2:before {
+  display: block;
+  height: 5px;
+  border-bottom: 2px solid #243832;
+  border-top: 2px solid #243832;
+  content: " ";
+}
+
+/* ----------nav 영역---------- */
+nav {
+  padding: 0px 4%;
+  background-color: #243832;
+  text-align: center;
+}
+
+nav > ul {
+  display: flex;
+  padding: 3px 0px;
+
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+
+nav > ul > li {
+  padding: 10px 20px;
+  margin-top: 0px;
+  margin-left: 20px;
+  height: 30px;
+
+  border: 2px solid #243832;
+
+  vertical-align: middle;
+  font-size: 22px;
+}
+
+nav > ul > li:hover {
+  background-color: #3b554d;
+  cursor: pointer;
+
+  border-radius: 15px;
+  border: 2px solid #f9f9f9;
+  opacity: 0.9;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  white-space: nowrap;
+  color: white;
+}
+
+#search-div {
+  margin-left: auto;
+  margin-right: 50px;
+  color: #f9f9f9;
+}
+
+#search-input {
+  padding: 5px 2px;
+
+  background-color: inherit;
+  border-radius: 5px;
+  border: #f9f9f9a9 2px solid;
+
+  color: #f9f9f9;
+}
+
+.search-btn{
+  padding: 1px;
+
+  background-color: inherit;
+  border: #f9f9f9a9 1.5px solid;
+  border-radius: 5px;
+
+  color: #f9f9f9;
+  font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 0px 0px #c9cfcd;
+}
+
+/* .search-btn:active{
+    cursor: pointer;
+} */
+
+/* ----------main 영역---------- */
+main {
+  background-color: #243832b3;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  padding: 50px;
+  margin: 20px auto;
+
+  min-height: 1000px;
+  width: 60%;
+  height: auto;
+
+  text-align: center;
+}
+
+#main-title-text {
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+#index-div {
+  display: grid;
+  /* auto-fill/ auto-fit하고 헷갈리지 말자 */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+/* ----------article 영역---------- */
+article {
+  margin: 10px auto;
+  width: 165px;
+  height: 322px;
+
+  background-image: url("src/crumpled-paper-texture.jpg");
+  background-size: contain;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  justify-items: center;
+  color: black;
+}
+
+article:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.movie-front {
+  width: 165px;
+  height: 220px;
+
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.ranking {
+  margin-top: 0px;
+
+  background-color: black;
+  opacity: 0.6;
+  border-radius: 5px 5px 0px 0px;
+
+  color: white;
+  font-size: 18px;
+}
+
+.release-date {
+  margin-top: 0px;
+  padding: 2px 0px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 5px 5px 0px 0px;
+
+  color: white;
+  font-size: 16px;
+}
+
+.movie-title {
+  margin: 6px 0px;
+  width: 150px;
+  height: 30px;
+
+  list-style: none;
+  font-size: 18px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-title:hover {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.overview {
+  margin-top: 6px;
+  padding: 10px 6px;
+  width: 154px;
+  height: 160px;
+
+  background-color: rgb(35, 33, 33);
+  opacity: 0;
+
+  color: white;
+  font-size: 12px;
+  overflow: auto;
+}
+
+.overview:hover {
+  opacity: 0.9;
+}
+
+/*-------------------- 모달--------------------  */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.475);
+}
+
+.hide {
+    display: none;
+  }
+
+.modal-content {
+  z-index: 999;
+  background-image: url("src/crumpled-paper-texture.jpg");
+  background-position: center;
+  background-size: cover;
+  
+  margin: 3% auto;
+  padding: 20px;
+  width: 40%;
+  height: 80%;
+  position: relative;
+
+  border: #243832 solid 10px;
+  border-radius: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.close-btn {
+    background-color: #243832;
+    position: fixed;
+    right: 30%;
+    width: 20px;
+
+    border-radius: 5px;
+    color: #f9f9f9;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-header {
+display: grid;
+grid-template-columns: 1fr 2fr;
+grid-gap: 10px;
+text-align: center;
+
+overflow: hidden;
+
+height: 48%;
+margin-top: 40px;
+padding: 10px;
+padding-bottom: 28px;
+
+background-color: #243832b2;
+border-radius: 5px;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.modal-img {
+  min-width: 160px;
+  width: 80%;
+  margin: 20px;
+  margin-right: 0px;
+  /* padding-right: 10px; */
+  margin-bottom: 5px;
+
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.modal-header-content {
+  min-width: 120px;
+  padding: 3px 20px;
+  margin: 20px 0px;
+  text-align: left;
+}
+
+#original-title {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+#modal-rating {
+  margin-bottom: 20px;
+}
+
+#modal-overview {
+  min-width: 120px;
+  min-height: 120px;
+  margin: 20px 0px;
+  height: 160px;
+
+  text-align: left;
+  overflow: auto;
+}
+
+#modal-overview>h2 {
+  margin-bottom: 10px;
+}  
+
+#modal-overview>p {
+  margin-bottom: 10px;
+
+}  
+/*-------------------- 모달--------------------  */
+
+.rating {
+  font-size: 10px;
+}
+
+.bookmark-btn {
+  margin-top: 7px;
+  padding: 2px;
+  transition: all 0.3s;
+
+  background-color: #243832;
+  border: none;
+  border-radius: 5px;
+
+  color: #f9f9f9;
+  font-family: "Hahmlet", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.bookmark-btn:hover {
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.bookmark-btn:active {
+  cursor: pointer;
+  margin-top: 7px;
+}
+
+/* ----------footer 영역---------- */
+footer {
+  background-color: #243832;
+  padding: 60px;
+  color: #f9f9f9;
+  text-align: center;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <script type="module" src="src/index.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <h1 id="header-title">MOVIE TIME</h1>
+        <h2 id="header-h2">What's your all time favorite movie?</h2>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="#">영화 북마크</a></li>
+        <div id="search-div">
+          <label for="search-input"></label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="검색어를 입력해주세요."
+            style="display: none"
+          />
+          <button class="search-btn">영화 찾기</button>
+        </div>
+      </ul>
+    </nav>
+
+    <main>
+      <h1 id="main-title-text">trending</h1>
+      <div id="index-div">
+        <article class="movie-card">
+          <section
+            class="movie-front"
+            style="
+              background-image: url('https://image.tmdb.org/t/p/w500${poster}');
+            "
+          >
+            <div class="ranking">${i + 1}위</div>
+            <div class="overview">${overview}</div>
+          </section>
+          <section>
+            <div class="movie-title">${title}</div>
+            <div class="rating">평점 : ${rating}</div>
+            <button class="bookmark-btn">북마크</button>
+          </section>
+        </article>
+      </div>
+      <section id="modal-section">
+        <section id="modal-section">
+          <!-- modal start -->
+          <div id="title1" class="modal hide">
+            <div class="modal-content">
+              <span class="close-btn"> X </span>
+              <div class="modal-header">
+                <img
+                  class="modal-img"
+                  src="https://img.khan.co.kr/news/2016/11/24/l_2016112501003520400287685.jpg"
+                  alt=""
+                />
+                <div class="modal-header-content">
+                  <h2 id="modal-title">범죄와의 전쟁</h2>
+                  <hr>
+                  <p id="modal-release-date">개봉일 : 2020-20-20</p>
+                  <p id="genres">장르 : 스릴러, 코믹</p>
+                  <p id="modal-rating">평점 : 00.00</p>
+                  <button class="bookmark-btn">북마크</button>
+                  <div id="modal-overview">
+                    <h2> 요약 </h2>
+                    <p>전직 엘리트 요원이 임신한 아내와 함께 자택에서
+                      습격을 당한다. 그리고 곧이어 고통스러운 과거에 얽힌 위험한
+                      추격전에 말려든다.</p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal end -->
+        </section>
+
+    </main>
+
+    <footer>
+      <p>footer 영역</p>
+      <p>저작권 정보</p>
+    </footer>
+
+  </body>
+</html>
