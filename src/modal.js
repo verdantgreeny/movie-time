@@ -2,22 +2,21 @@ import { key, indexDiv } from "./index.js";
 
 // 모달 창 가져오기
 const modal = document.querySelector(".modal");
-const closeBtn = document.querySelector(".close-btn");
 const modalSection = document.querySelector("#modal-section");
 
 // ----------------모달----------------
 function toggleModal() {
   modal.classList.toggle("hide");
 }
-let printDetail = function (res) {
-  modalSection.innerHTML = "";
-  let title = res["title"];
-  let originalTitle = res["original_title"];
-  let overview = res["overview"];
-  let poster = res["poster_path"];
-  let rating = res["vote_average"];
-  let releaseDate = res["release_date"];
-  let genres = res["genres"][0]["name"];
+
+let printDetails = function (res2) {
+  let title = res2["title"];
+  let originalTitle = res2["original_title"];
+  let overview = res2["overview"];
+  let poster = res2["poster_path"];
+  let rating = res2["vote_average"];
+  let releaseDate = res2["release_date"];
+  let genres = res2["genres"][0]["name"];
   //데이터 화면 출력하기
   let modal = `
         <!-- modal start -->
@@ -49,24 +48,23 @@ let printDetail = function (res) {
         <!-- modal end -->
 `;
   modalSection.innerHTML = modal;
-
-  // 모달 닫기 버튼 클릭 이벤트 추가
-  const modalHide = document.querySelector(".modal");
-  modalSection.addEventListener("click", function (e) {
-    if (e.target.tagName === "SPAN") {
-      modalHide.classList.add("hide");
-    } else if (e.target.tagName === "BUTTON") {
-      alert("북마크 되었습니다.");
-    }
-  });
-};
+}
 
 //상세 페이지 API
-let detailsMovie = function (id) {
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=ko-KR`;
-  fetch(url)
-    .then((res) => res.json())
-    .then(printDetail);
+let detailsMovie = async function (id) {
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=ko-KR`;
+    const res = await fetch(url);
+    const res2 = await res.json();
+      modalSection.innerHTML = "";
+    printDetails(res2);
+    modalClose();
+  } catch (err) {
+    modalSection.innerHTML = "";
+    alert(`
+    상세페이지를 불러올 수 없습니다. 
+    ${err}` )
+  }
 };
 
 // 모달 열기 버튼 클릭 이벤트 추가
@@ -80,3 +78,15 @@ indexDiv.addEventListener("click", function (e) {
     alert("북마크 되었습니다.");
   }
 });
+
+// 모달 닫기 버튼 클릭 이벤트 추가
+let modalClose = function () {
+  const modalHide = document.querySelector(".modal");
+  modalSection.addEventListener("click", function (e) {
+    if (e.target.tagName === "SPAN") {
+      modalHide.classList.add("hide");
+    } else if (e.target.tagName === "BUTTON") {
+      alert("북마크 되었습니다.");
+    }
+  });
+};
