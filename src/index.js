@@ -3,8 +3,7 @@ export const indexDiv = document.querySelector("#index-div");
 export const rankingText = document.querySelector(".ranking");
 export const main = document.querySelector("main");
 
-
-export let fetchCard = function (a, i) {
+export let printCard = function (a, i) {
   let title = a["title"];
   let overview = a["overview"];
   let rating = a["vote_average"];
@@ -40,7 +39,7 @@ let trendMovie = function () {
     .then((res) => {
       let rows = res["results"];
       indexDiv.innerHTML = "";
-      rows.forEach(fetchCard);
+      rows.forEach(printCard);
     });
 };
 

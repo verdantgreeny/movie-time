@@ -1,4 +1,4 @@
-import {key, indexDiv, fetchCard} from './index.js';
+import {key, indexDiv, printCard} from './index.js';
 
 //검색기능 구현
 const searchBtn = document.querySelector(".search-btn");
@@ -33,7 +33,7 @@ searchBtn.addEventListener("click", function () {
       .then((res) => {
         let rows = res["results"];
         indexDiv.innerHTML = "";
-        rows.forEach(fetchCard);
+        rows.forEach(printCard);
       });
   };
   
