@@ -1,7 +1,9 @@
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
-export const rankingText = document.querySelector(".ranking");
-export const main = document.querySelector("main");
+
+import {trendMovie} from './api.js'
+// export const rankingText = document.querySelector(".ranking");
+// export const main = document.querySelector("main");
 
 export let printCard = function (a, i) {
   let title = a["title"];
@@ -31,17 +33,7 @@ export let printCard = function (a, i) {
   indexDiv.innerHTML += movieCard;
 };
 
-//----------------홈화면 API로 데이터 받고 화면 출력----------------
-let trendMovie = function () {
-  const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}&language=ko-KR`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((res) => {
-      let rows = res["results"];
-      indexDiv.innerHTML = "";
-      rows.forEach(printCard);
-    });
-};
+
 
 trendMovie();
 

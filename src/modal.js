@@ -9,13 +9,15 @@ const modalSection = document.querySelector("#modal-section");
 function toggleModal() {
     modal.classList.toggle("hide");
   }
-  
+let printDetail = function() {
+    
+} 
   //상세 페이지 API로 데이터 받고 화면 출력
   let detailsMovie = function (id) {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=ko-KR`;
     fetch(url)
       .then((res) => res.json())
-      .then((res) => {
+      .then(function(res) {
         modalSection.innerHTML = "";
         let title = res["title"];
         let originalTitle = res["original_title"];
