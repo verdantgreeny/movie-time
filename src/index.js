@@ -1,10 +1,8 @@
+import {fetchMovie} from './api.js';
+import { mainTitleText } from './search.js';
+
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
-
-import {fetchMovie} from './api.js'
-// export const rankingText = document.querySelector(".ranking");
-// export const main = document.querySelector("main");
-
 export let printCard = function (a, i) {
   let title = a["title"];
   let overview = a["overview"];
@@ -26,17 +24,40 @@ export let printCard = function (a, i) {
     <section>
       <li class="movie-title" id="${id}">${title}</li>
       <div class="rating">평점 : ${rating}</div>
-      <button class="bookmark-btn">북마크</button>
+      <button class="bookmark-btn" id="${id}">북마크</button>
     </section>
   </article>
   `;
   indexDiv.innerHTML += movieCard;
 };
 
-
-
 fetchMovie(null);
 
-
 //북마크 하기
-const bookmarkBtn = document.querySelector(".bookmark-btn");
+const bookmarkLink = document.querySelector('#bookmark-link');
+
+let bookmarkList = [];
+
+bookmarkLink.addEventListener('click', function(){
+  mainTitleText.innerHTML = '영화 북마크';
+  if (bookmarkList.length === 0) {
+    indexDiv.style.display = "none";
+  } else {
+    indexDiv.style.display = "grid";
+  }
+})
+
+indexDiv.addEventListener("click", function (e) {
+    if (e.target.tagName === "BUTTON") {
+        e.target.classList.add('add-bookmark');
+        alert("북마크 되었습니다.");
+      }
+     });
+
+let modalBookmark = function () {
+   modalSection.addEventListener("click", function (e) {
+   if (e.target.tagName === "BUTTON") {
+       alert("북마크 되었습니다.");
+     }
+   });
+ };

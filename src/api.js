@@ -9,6 +9,7 @@ const options = {
   }
 };
 
+// movie-card API
 export let fetchMovie = async function (searchValue) {
   try {
       const mainUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}&language=ko-KR`;
@@ -22,9 +23,8 @@ export let fetchMovie = async function (searchValue) {
           r.forEach(printCard);
     } catch (err) {
       indexDiv.style.display = "none";
-      mainTitleText.innerHTML = `페이지를 불러오지 못 했습니다.<br> "${err}" 발생`;
+      mainTitleText.innerHTML = `페이지를 불러오지 못 했습니다. <p> "${err}" </p>`;
     }
   };
-
 
 

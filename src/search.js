@@ -10,7 +10,6 @@ export const mainTitleText = document.querySelector("#main-title-text");
 //----------------검색----------------
 //검색버튼 마우스오버할 때 일어나는 이벤트 -> 클릭시 이벤트로 변경
 searchBtn.addEventListener("click", function () {
-    console.log("click");
     //삼항연산자로 바꾸기
     searchInput.style.display === "none"
       ? (searchInput.style.display = "inline")
