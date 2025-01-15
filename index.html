@@ -59,34 +59,32 @@
       </div>
       <section id="modal-section">
         <section id="modal-section">
-          <!-- modal start -->
-          <div id="title1" class="modal hide">
-            <div class="modal-content">
-              <span class="close-btn"> X </span>
-              <div class="modal-header">
-                <img
-                  class="modal-img"
-                  src="https://img.khan.co.kr/news/2016/11/24/l_2016112501003520400287685.jpg"
-                  alt=""
-                />
-                <div class="modal-header-content">
-                  <h2 id="modal-title">범죄와의 전쟁</h2>
-                  <hr>
-                  <p id="modal-release-date">개봉일 : 2020-20-20</p>
-                  <p id="genres">장르 : 스릴러, 코믹</p>
-                  <p id="modal-rating">평점 : 00.00</p>
-                  <button class="bookmark-btn">북마크</button>
-                  <div id="modal-overview">
-                    <h2> 요약 </h2>
-                    <p>전직 엘리트 요원이 임신한 아내와 함께 자택에서
-                      습격을 당한다. 그리고 곧이어 고통스러운 과거에 얽힌 위험한
-                      추격전에 말려든다.</p> 
-                  </div>
-                </div>
+        <!-- modal start -->
+        <div id="title1" class="modal hide">
+          <div class="modal-content">
+            <span class="close-btn"> X </span>
+            <div class="modal-header">
+              <img
+                class="modal-img"
+                src="https://image.tmdb.org/t/p/w500${poster}"
+                alt=""
+              />
+              <div class="modal-header-content">
+                <h2 id="modal-title">${title}</h2>
+                <p id="original-title"> ${originalTitle} </p>
+                <p id="modal-release-date">개봉일 : ${releaseDate}</p>
+                <p id="genres">장르 : ${genres}</p>
+                <p id="modal-rating">평점 : ${rating} </p>
+                <button class="bookmark-btn">북마크</button>
               </div>
             </div>
+            <div id="modal-overview">
+            <h2> 요약 </h2>
+            <p>${overview}</p> 
           </div>
-          <!-- modal end -->
+          </div>
+        </div>
+        <!-- modal end -->
         </section>
 
     </main>

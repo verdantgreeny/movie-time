@@ -1,7 +1,7 @@
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
 
-import {trendMovie} from './api.js'
+import {fetchMovie} from './api.js'
 // export const rankingText = document.querySelector(".ranking");
 // export const main = document.querySelector("main");
 
@@ -35,7 +35,7 @@ export let printCard = function (a, i) {
 
 
 
-trendMovie();
+fetchMovie(null);
 
 
 //북마크 하기

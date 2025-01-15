@@ -1,10 +1,10 @@
 import {indexDiv} from './index.js';
-import {searchForMovie} from './api.js'
+import {fetchMovie} from './api.js'
 
 //검색기능 구현
 const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.querySelector("#search-input");
-const mainTitleText = document.querySelector("#main-title-text");
+export const mainTitleText = document.querySelector("#main-title-text");
 // const ranking = document.querySelector("#ranking");
 
 //----------------검색----------------
@@ -26,15 +26,13 @@ searchBtn.addEventListener("click", function () {
     }
   });
   
-
-  
   // 인풋값가져오기 input
   searchInput.addEventListener("input", function () {
     let searchValue = searchInput.value.trim(); //trim(): 문자열의 양 끝에 공백 제거
     if (searchValue !== "") {
       indexDiv.style.display = "grid";
       mainTitleText.innerHTML = `"${searchValue}" 검색 결과`;
-      searchForMovie(searchValue);
+      fetchMovie(searchValue);
       return;
     } else {
       mainTitleText.innerHTML = `"" 검색 결과`;
