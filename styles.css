@@ -112,7 +112,7 @@ nav > ul > li > a {
   color: #f9f9f9;
 }
 
-.search-btn{
+.search-btn {
   padding: 1px;
 
   background-color: inherit;
@@ -224,14 +224,13 @@ article:hover {
 }
 
 .movie-title:hover {
-    cursor: pointer;
-    border-radius: 3px; 
-    background-color: #222;
- 
-    
-    font-size: 22px;
-    opacity: 0.6;
-    color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #222;
+
+  font-size: 22px;
+  opacity: 0.6;
+  color: white;
 }
 
 .overview {
@@ -263,19 +262,19 @@ article:hover {
 }
 
 .hide {
-    display: none;
-  }
+  display: none;
+}
 
 .modal-content {
   z-index: 999;
   background-image: url("src/crumpled-paper-texture.jpg");
   background-position: center;
   background-size: cover;
-  
-  margin: 3% auto;
+
+  margin: 5% auto;
   padding: 20px;
   width: 40%;
-  height: 80%;
+  height: 72%;
   position: relative;
 
   border: #243832 solid 10px;
@@ -284,36 +283,36 @@ article:hover {
 }
 
 .close-btn {
-    background-color: #243832;
-    position: fixed;
-    right: 30%;
-    width: 20px;
+  background-color: #243832;
+  position: fixed;
+  right: 30%;
+  width: 20px;
 
-    border-radius: 5px;
-    color: #f9f9f9;
+  border-radius: 5px;
+  color: #f9f9f9;
 }
 
 .close-btn:hover {
-    cursor: pointer;
-    opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .modal-header {
-display: grid;
-grid-template-columns: 1fr 2fr;
-grid-gap: 10px;
-text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+  text-align: center;
 
-overflow: hidden;
+  overflow: hidden;
 
-height: 48%;
-margin-top: 40px;
-padding: 10px;
-padding-bottom: 20px;
+  height: 48%;
+  margin-top: 40px;
+  padding: 10px;
+  padding-bottom: 30px;
 
-background-color: #243832b2;
-border-radius: 5px;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #243832b2;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .modal-img {
@@ -365,14 +364,13 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   overflow: auto;
 }
 
-#modal-overview>h2 {
+#modal-overview > h2 {
   margin-bottom: 10px;
-}  
+}
 
-#modal-overview>p {
+#modal-overview > p {
   margin-bottom: 10px;
-
-}  
+}
 /*-------------------- 모달--------------------  */
 
 .rating {

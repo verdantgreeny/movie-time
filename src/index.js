@@ -1,7 +1,8 @@
-import {fetchMovie} from './api.js';
+import { fetchMovie } from "./api.js";
 
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
+
 export let printCard = function (a, i) {
   let title = a["title"];
   let overview = a["overview"];
@@ -32,4 +33,3 @@ export let printCard = function (a, i) {
 };
 
 fetchMovie(null);
-
