@@ -213,6 +213,7 @@ article:hover {
   margin: 6px 0px;
   width: 150px;
   height: 30px;
+  padding-bottom: 5px;
 
   list-style: none;
   font-size: 18px;
@@ -224,9 +225,13 @@ article:hover {
 
 .movie-title:hover {
     cursor: pointer;
-    font-size: 22px;
     border-radius: 3px; 
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20), 0 10px 10px rgba(0, 0, 0, 0.17);
+    background-color: #222;
+ 
+    
+    font-size: 22px;
+    opacity: 0.6;
+    color: white;
 }
 
 .overview {
@@ -304,7 +309,7 @@ overflow: hidden;
 height: 48%;
 margin-top: 40px;
 padding: 10px;
-padding-bottom: 28px;
+padding-bottom: 20px;
 
 background-color: #243832b2;
 border-radius: 5px;
@@ -324,8 +329,8 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .modal-header-content {
-  min-width: 120px;
-  padding: 3px 20px;
+  min-width: 100px;
+  padding: 3px 10px;
   margin: 20px 0px;
   text-align: left;
   white-space: nowrap;
@@ -375,7 +380,7 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .bookmark-btn {
-  margin-top: 10px;
+  margin-top: 7px;
   padding: 2px 5px;
   transition: all 0.3s;
 
@@ -392,12 +397,12 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
 .bookmark-btn:hover {
   cursor: pointer;
-  margin-top: 9px;
+  margin-top: 6px;
 }
 
 .bookmark-btn:active {
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 7px;
 }
 
 .remove {

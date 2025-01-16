@@ -1,28 +1,51 @@
-import { indexDiv} from "./index.js";
+import { indexDiv } from "./index.js";
 import { mainTitleText } from "./search.js";
 //북마크 하기
 
 const bookmarkLink = document.querySelector("#bookmark-link");
 
-let savedMovieCheck = []; 
 
-//북마크에 저장
-const save = function (movie, movieId) {
-  let newMovieList = JSON.parse(localStorage.getItem("movie")) || [];
-  let newMovie = movieId
-  let isDup = savedMovieCheck.indexOf(newMovie);
-  console.log('중복확인', isDup);
-  
-  if (isDup === -1) {
-    newMovieList.push(movie);
-    savedMovieCheck.push(movieId);
+let savedMovieIdCheck = JSON.parse(localStorage.getItem("id")) || [];
+let bookmarkMovieList = JSON.parse(localStorage.getItem("movie")) || [];
 
-    localStorage.setItem("movie", JSON.stringify(newMovieList));
-    alert("북마크가 저장 되었습니다.");
-  } else {
-    alert("북마크가 이미 저장 되어있습니다.")
+
+// 북마크 버튼 상태
+const btnState = function () {
+  for (let i = 0; i < bookmarkMovieList.length; i++) {
+   let isDup = savedMovieIdCheck.indexOf(bookmarkMovieList[i]["id"]);
+   let title = bookmarkMovieList[i]["title"]
+   if (isDup === -1) {
+    console.log(`${title}  북마크 삭제`);
+   } else {
+    console.log(`${title}  북마크 추가`);
+   }
   }
+};
 
+btnState();
+
+const save = function (movie, movieId, e) {
+  let newMovie = movieId;
+  let isDup = savedMovieIdCheck.indexOf(newMovie);
+
+  //북마크에 저장 및 삭제하기
+  if (isDup === -1) {
+    bookmarkMovieList.push(movie);
+    savedMovieIdCheck.push(movieId);
+    localStorage.setItem("movie", JSON.stringify(bookmarkMovieList));
+    localStorage.setItem("id", JSON.stringify(savedMovieIdCheck));
+    alert("북마크가 저장 되었습니다.");
+    e.target.innerText = "북마크 삭제";
+    e.target.classList.add("remove");
+  } else {
+    bookmarkMovieList.splice(isDup, 1);
+    savedMovieIdCheck.splice(isDup, 1);
+    localStorage.setItem("movie", JSON.stringify(bookmarkMovieList));
+    localStorage.setItem("id", JSON.stringify(savedMovieIdCheck));
+    alert("북마크가 삭제 되어있습니다.");
+    e.target.innerText = "북마크 추가";
+    e.target.classList.remove("remove");
+  }
 };
 
 //메인화면에서 북마크 버튼을 눌렀을 때
@@ -42,18 +65,16 @@ indexDiv.addEventListener("click", function (e) {
       rating: rating,
       id: movieId,
     };
-    save(movieObj, movieId);
+    save(movieObj, movieId, e);
   }
 });
 
-//북마크 링크 클릭 시
-bookmarkLink.addEventListener("click", function () {
-  mainTitleText.innerHTML = "영화 북마크";
+let printBookmark = function () {
   if (localStorage.length === 0) {
     indexDiv.style.display = "none";
   } else {
     indexDiv.style.display = "grid";
-    indexDiv.innerHTML= "";
+    indexDiv.innerHTML = "";
     let printBookmarkCard = JSON.parse(localStorage.getItem("movie"));
 
     for (let i = 0; i < printBookmarkCard.length; i++) {
@@ -79,15 +100,20 @@ bookmarkLink.addEventListener("click", function () {
         <section>
           <li class="movie-title" id="${id}">${title}</li>
           <div class="rating">${rating}</div>
-          <button class="bookmark-btn remove" id="${id}">북마크 삭제하기</button>
+          <button class="bookmark-btn remove" id="${id}">북마크 삭제</button>
         </section>
       </article>
       `;
       indexDiv.innerHTML += movieCard;
-    }    
     }
-  });
+  }
+};
 
+//북마크 링크 클릭 시
+bookmarkLink.addEventListener("click", function () {
+  mainTitleText.innerHTML = "영화 북마크";
+  printBookmark();
+});
 
 // //모달창에 있는 북마크 버튼을 눌렀을 때
 // let modalBookmark = function () {
