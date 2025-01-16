@@ -28,3 +28,4 @@ export let fetchMovie = async function (searchValue) {
   };
 
 
+
