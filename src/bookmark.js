@@ -4,26 +4,9 @@ import { modalSection } from "./modal.js";
 
 //북마크
 const bookmarkLink = document.querySelector("#bookmark-link");
+
 let savedMovieIdCheck = JSON.parse(localStorage.getItem("id")) || [];
 let bookmarkMovieList = JSON.parse(localStorage.getItem("movie")) || [];
-
-let test = document.querySelector(
-  "#index-div > article:nth-child(18) > section:nth-child(2)"
-);
-console.log(test);
-
-// 북마크 버튼 상태
-export const btnState = function () {
-  for (let i = 0; i < bookmarkMovieList.length; i++) {
-    let isDup = savedMovieIdCheck.indexOf(bookmarkMovieList[i]["id"]);
-    let title = bookmarkMovieList[i]["title"];
-    if (isDup !== -1) {
-      console.log(`${title}  북마크 추가`);
-    }
-  }
-};
-
-btnState();
 
 const save = function (movie, movieId, e) {
   let newMovie = movieId;
@@ -71,26 +54,6 @@ indexDiv.addEventListener("click", function (e) {
   }
 });
 
-// 모달에 있는 북마크 (임시로 만들어둠)
-modalSection.addEventListener("click", function (e) {
-  if (e.target.tagName === "BUTTON") {
-    //영화 정보 가져오기
-    let movieModal = e.target.closest(".modal-content");
-    let movieId = e.target.id;
-    let poster = movieModal.querySelector(".poster").innerText;
-    let overview = movieModal.querySelector("#modal-p-overview").innerText;
-    let title = movieModal.querySelector("#modal-title").innerText;
-    let rating = movieModal.querySelector("#modal-rating").innerText;
-    let movieObj = {
-      title: title,
-      poster: poster,
-      overview: overview,
-      rating: rating,
-      id: movieId,
-    };
-    save(movieObj, movieId, e);
-  }
-});
 
 // 북마크된 카드 출력
 let printBookmark = function () {
@@ -138,3 +101,6 @@ bookmarkLink.addEventListener("click", function () {
   mainTitleText.innerHTML = "영화 북마크";
   printBookmark();
 });
+
+
+

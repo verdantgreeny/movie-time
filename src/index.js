@@ -29,7 +29,38 @@ export let printCard = function (a, i) {
     </section>
   </article>
   `;
-  indexDiv.innerHTML += movieCard;
+
+  let bookmarkCard = `
+  <article class="movie-card">
+    <section
+      class="movie-front"
+      style="
+        background-image: url('https://image.tmdb.org/t/p/w500${poster}');
+      "
+    >
+      <div class="poster" style="display: none;">${poster}</div>
+      <div class="ranking">${i + 1}</div>
+      <div class="overview">${overview}</div>
+    </section>
+    <section>
+      <li class="movie-title" id="${id}">${title}</li>
+      <div class="rating"> 평점 : ${rating}</div>
+      <button class="bookmark-btn remove" id="${id}">북마크 삭제</button>
+    </section>
+  </article>
+  `;
+  let StrId = `${id}`;
+  //  북마크 버튼 상태
+  let isDup = savedMovieIdCheck.indexOf(StrId);
+  if (isDup !== -1) {
+    indexDiv.innerHTML += bookmarkCard;
+  } else {
+    indexDiv.innerHTML += movieCard;
+  }
+ 
 };
 
 fetchMovie(null);
+
+let savedMovieIdCheck = JSON.parse(localStorage.getItem("id")) || [];
+

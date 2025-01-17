@@ -19,7 +19,6 @@ searchInput.addEventListener("focus", function () {
   if (searchInput.value === "") {
     indexDiv.style.display = "none";
     mainTitleText.innerHTML = `"" 검색 결과`;
-    console.log("focus");
   }
 });
 

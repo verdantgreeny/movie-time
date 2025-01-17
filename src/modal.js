@@ -52,7 +52,6 @@ let printDetails = function (res2) {
                 <p id="modal-release-date">개봉일 : ${releaseDate}</p>
                 <p id="genres">장르 : ${genres}</p>
                 <p id="modal-rating">평점 : ${rating} </p>
-                <button class="bookmark-btn" id="${id}">북마크 추가</button>
               </div>
             </div>
 
