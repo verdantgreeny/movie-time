@@ -20,6 +20,7 @@ export let fetchMovie = async function (searchValue) {
       const res2 = await res.json();
           let r = res2["results"];
           indexDiv.innerHTML = "";
+          mainTitleText.innerHTML = "trending";
           r.forEach(printCard);
     } catch (err) {
       indexDiv.style.display = "none";
