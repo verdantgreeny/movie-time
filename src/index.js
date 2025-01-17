@@ -2,6 +2,11 @@ import { fetchMovie } from "./api.js";
 
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
+const homeLink = document.querySelector('#home-link');
+
+homeLink.addEventListener("click", function(){
+  fetchMovie(null);
+})
 
 export let printCard = function (a, i) {
   let title = a["title"];
