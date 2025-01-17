@@ -3,8 +3,10 @@ import { fetchMovie } from "./api.js";
 export const key = "8c042dd259ff74678faad9fc993de371";
 export const indexDiv = document.querySelector("#index-div");
 const homeLink = document.querySelector('#home-link');
+const mainTitleText = document.querySelector("#main-title-text");
 
 homeLink.addEventListener("click", function(){
+  mainTitleText.innerHTML = `trending`;
   fetchMovie(null);
 })
 
