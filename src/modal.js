@@ -84,7 +84,7 @@ indexDiv.addEventListener("click", function (e) {
 let modalClose = function () {
   const modalHide = document.querySelector(".modal");
   modalSection.addEventListener("click", function (e) {
-    if (e.target.tagName === "SPAN") {
+    if (e.target.tagName === "SPAN" || e.target === modalHide) {
       modalHide.classList.add("hide");
     } else if (e.target.tagName === "BUTTON") {
       alert("북마크 되었습니다.");
